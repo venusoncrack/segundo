@@ -6,8 +6,8 @@ import os
 from gtts import gTTS
 from PIL import Image
 
-st.title("Interfases Multimodales.")
-image = Image.open('text_to_audio.png')
+st.title("¡Convierte el texto que quieras en un audio!")
+image = Image.open('gato.png')
 
 st.image(image, width=200)
 
@@ -17,15 +17,15 @@ try:
 except:
     pass
 
-st.subheader("Texto a audio.")
+st.subheader("La idea es facilitarte la vida tanto como podamos")
 st.write('Las interfaces de texto a audio son fundamentales en las interfaces multimodales ya que permiten '  
          'una comunicación más accesible y natural, facilitando la inclusión de personas con discapacidades ' 
          ' visuales y permitiendo la interacción en situaciones donde no es posible leer texto. Estas interfaces '  
-         ' también impulsan tecnologías emergentes como los asistentes de voz inteligentes, haciendo que la tecnología ' 
-         ' sea más accesible e intuitiva para todos los usuarios')
+         ' también impulsan tecnologías emergentes como los asistentes de voz inteligentes, haciendo la tecnología ' 
+         ' más accesible e intuitiva.')
            
 
-text = st.text_input("Ingrese el texto.")
+text = st.text_input("Ingresa el texto que deseas convertir:")
 
 tld="es"
 
@@ -46,11 +46,11 @@ if st.button("convertir"):
     result, output_text = text_to_speech(text, tld)
     audio_file = open(f"temp/{result}.mp3", "rb")
     audio_bytes = audio_file.read()
-    st.markdown(f"## Tú audio:")
+    st.markdown(f"## Tu audio:")
     st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
     #if display_output_text:
-    st.markdown(f"## Texto en audio:")
+    st.markdown(f"## Tu texto:")
     st.write(f" {output_text}")
 
 
@@ -66,3 +66,9 @@ def remove_files(n):
 
 
 remove_files(7)
+
+st.subheader("¿Te gusta lo que escuchaste?")
+if st.button("Siiiii"):
+  st.write("¡Buenísimo!")
+else:
+  st.write("Presiona si te gustó el resultado.")

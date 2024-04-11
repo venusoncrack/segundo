@@ -7,7 +7,7 @@ from gtts import gTTS
 from PIL import Image
 
 st.title("¡Convierte el texto que quieras en un audio!")
-image = Image.open('gato.png')
+image = Image.open('gato.jpg')
 
 st.image(image, width=200)
 
